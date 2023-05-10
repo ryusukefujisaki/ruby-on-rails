@@ -1,14 +1,34 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Bands</h1>
-
-<div id="bands">
-  <% @bands.each do |band| %>
-    <%= render band %>
-    <p>
-      <%= link_to "Show this band", band %>
-    </p>
-  <% end %>
+<div class="callout">
+  <span class="h1">Bands</span>
+  <%= link_to(
+    "New band",
+    new_band_path,
+    {
+      class: 'button large',
+      style: 'position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);'
+    }
+  ) %>
 </div>
 
-<%= link_to "New band", new_band_path %>
+<div id="bands">
+  <table class="unstriped hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Registerd At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bands.each.with_index(1) do |band, index| %>
+        <tr style="cursor: pointer;" onclick='window.location="<%= band_path(band) %>";'>
+          <td><%= index %></td>
+          <td><%= band.name %></td>
+          <td><%= band.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
