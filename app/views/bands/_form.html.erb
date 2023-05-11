@@ -12,11 +12,8 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.label :name, class: 'h3', style: 'display: block; margin-bottom: 0;' %>
+    <%= form.text_field :name, style: 'margin-bottom: 1rem;' %>
+    <%= form.submit class: 'button alert large' %>
   </div>
 <% end %>
