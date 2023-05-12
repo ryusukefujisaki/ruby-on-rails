@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root to: redirect('/bands')
 
   resources :bands
+
+  get '/framework', to: 'framework#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
