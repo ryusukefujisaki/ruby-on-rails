@@ -1,0 +1,30 @@
+<ul class="vertical menu">
+  <li class="sidemenu-li"><a style="cursor: default;">Menu</a></li>
+  <li class="sidemenu-li"><%= link_to 'Bands', bands_path %></li>
+  <li class="sidemenu-li"><%= link_to 'Framework', root_path %></li>
+</ul>
+
+<style>
+.vertical.menu {
+  height: 100vh;
+  background-color: #cc4b37;
+  border: 1px solid gray;
+}
+.sidemenu-li {
+  padding: 7% 0;
+  border: 1px solid gray;
+}
+.sidemenu-li > a {
+  font-size: 1.25rem;
+  color: #fefefe;
+}
+.sidemenu-li:first-child {
+  background-color: #5e5e5e;
+}
+.sidemenu-li:not(:first-child) {
+  background-color: #cc4b37;
+}
+.sidemenu-li:not(:first-child):hover {
+  background-color: #ffae00;
+}
+</style>

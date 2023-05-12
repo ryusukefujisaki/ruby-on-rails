@@ -11,7 +11,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="display: flex;">
+    <div style="width: 15%;">
+      <%= render 'layouts/sidemenu' %>
+    </div>
+    <div style="width: 85%;">
+      <%= yield %>
+    </div>
   </body>
 </html>
