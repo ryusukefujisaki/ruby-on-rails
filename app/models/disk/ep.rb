@@ -1,2 +1,2 @@
-class Disk::EP < Disk
+class Disk::Ep < Disk
 end
