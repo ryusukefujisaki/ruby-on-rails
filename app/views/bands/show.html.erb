@@ -18,7 +18,7 @@
           <% disks.each do |disk| %>
             <tr>
               <td><%= disk.name %></td>
-              <td><%= disk.released_on %></td>
+              <td><%= disk.released_on || '-' %></td>
             </tr>
           <% end %>
         <% else %>
