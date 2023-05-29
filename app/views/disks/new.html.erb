@@ -1,0 +1,8 @@
+<div class="callout">
+  <span class="h1">New disk</span>
+</div>
+
+<div style="margin: auto 2.5%;">
+  <%= render "form", disk: @disk, type: @type %>
+  <%= link_to "Back to band", band_path(@disk.band), class: 'button secondary large' %>
+</div>
