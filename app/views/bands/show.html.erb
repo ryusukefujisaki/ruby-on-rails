@@ -6,6 +6,38 @@
   <span class="h1"><%= @band.name %></span>
 </div>
 
+<div style="margin: 0 2.5%;">
+  <% [Disk::Album, Disk::Ep, Disk::Single].each do |disk_type| %>
+    <div style="margin-bottom: 1rem;">
+      <span class="h3"><%= disk_type.to_s.demodulize %></span>
+      <%= link_to(
+        "Register",
+        new_band_disk_path(@band, type: disk_type),
+        class: 'button alert middle',
+        style: 'float: right;'
+      ) %>
+    </div>
+    <table class="unstriped" style="table-layout: fixed;">
+      <tbody>
+        <% disks = @band.ordered_disks.filter { |disk| disk.type == disk_type.to_s } %>
+        <% if disks.length > 0 %>
+          <% disks.each do |disk| %>
+            <tr>
+              <td><%= disk.name %></td>
+              <td><%= disk.released_on || '-' %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td>-</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <hr/>
+  <% end %>
+</div>
+
 <div style="margin: 32px 2.5% 0;">
   <%= link_to "Edit this band", edit_band_path(@band), class: 'button alert large' %>
   <%= link_to "Back to bands", bands_path, class: 'button secondary large', style: 'margin-left: 1rem;' %>
