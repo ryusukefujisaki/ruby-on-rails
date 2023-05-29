@@ -10,6 +10,12 @@
   <% [Disk::Album, Disk::Ep, Disk::Single].each do |disk_type| %>
     <div style="margin-bottom: 1rem;">
       <span class="h3"><%= disk_type.to_s.demodulize %></span>
+      <%= link_to(
+        "Register",
+        new_band_disk_path(@band, type: disk_type),
+        class: 'button alert middle',
+        style: 'float: right;'
+      ) %>
     </div>
     <table class="unstriped" style="table-layout: fixed;">
       <tbody>

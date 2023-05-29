@@ -1,0 +1,24 @@
+<%= form_with(model: disk, url: band_disks_path(disk.band)) do |form| %>
+  <% if disk.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(disk.errors.count, "error") %> prohibited this disk from being saved:</h2>
+
+      <ul>
+        <% disk.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :type, class: 'h3', style: 'display: block; margin-bottom: 0;' %>
+    <%= form.text_field nil, style: 'margin-bottom: 1rem;', value: type.demodulize, disabled: true %>
+    <%= form.hidden_field :type, value: type %>
+    <%= form.label :name, class: 'h3', style: 'display: block; margin-bottom: 0;' %>
+    <%= form.text_field :name, style: 'margin-bottom: 1rem;' %>
+    <%= form.label :released_on, class: 'h3', style: 'display: block; margin-bottom: 0;' %>
+    <%= form.text_field :released_on, style: 'margin-bottom: 1rem;' %>
+    <%= form.submit class: 'button alert large' %>
+  </div>
+<% end %>
