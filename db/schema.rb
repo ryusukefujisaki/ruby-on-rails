@@ -21,9 +21,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_28_105959) do
   end
 
   create_table "disks", force: :cascade do |t|
+    t.string "type", null: false
     t.string "name", null: false
     t.bigint "band_id", null: false
-    t.string "type", null: false
     t.date "released_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
